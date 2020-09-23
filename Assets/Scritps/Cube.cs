@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
+
+
+    bool _isSelect = false;
     //public Action<GameObject, int, int, int> OnSetCubeIndex;
 
     // Start is called before the first frame update
@@ -27,4 +30,26 @@ public class Cube : MonoBehaviour
     //{
     //    OnSetCubeIndex?.Invoke(gameObject, (int)transform.localPosition.x, (int)transform.localPosition.y, (int)transform.localPosition.z);
     //}
+
+
+
+    private void OnMouseDown()
+    {
+        _isSelect = true;
+        Debug.Log(name);
+    }
+    private void OnMouseUp()
+    {
+        if (!_isSelect) return;
+        _isSelect = false;
+        Debug.Log("Up");
+    }
+
+
+    private void OnMouseExit()
+    {
+        if (!_isSelect) return;
+        _isSelect = false;
+        Debug.Log("Exit");
+    }
 }
